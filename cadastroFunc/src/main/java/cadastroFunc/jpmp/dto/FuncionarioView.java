@@ -3,6 +3,7 @@ package cadastroFunc.jpmp.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import cadastroFunc.jpmp.entity.Endereco;
 import cadastroFunc.jpmp.entity.Funcionario;
 
 public class FuncionarioView {
@@ -11,72 +12,87 @@ public class FuncionarioView {
 	private String email;
 	private String id;
 	private String telefone;
-	private String cep;
-	private String logradouro;
-	private String numero;
-	private String bairro;
-	private String cidade;
-	private String estado;
+	private String enderecoCep;
+	private String enderecoLogradouro;
+	private String enderecoNumero;
+	private String enderecoBairro;
+	private String enderecoCidade;
+	private String enderecoEstado;
 	
 	public FuncionarioView(Funcionario funcionario) {
 		this.nome = funcionario.getNome();
 		this.email = funcionario.getEmail();
 		this.id = funcionario.getId();
 		this.telefone = funcionario.getTelefone();
-		this.cep = funcionario.getCep();
-		this.logradouro = funcionario.getLogradouro();
-		this.numero = funcionario.getNumero();
-		this.bairro = funcionario.getBairro();
-		this.cidade = funcionario.getCidade();
-		this.estado = funcionario.getEstado();
+		this.enderecoCep = funcionario.getEndereco().getCep();
+		this.enderecoLogradouro = funcionario.getEndereco().getLogradouro();
+		this.enderecoNumero = funcionario.getEndereco().getNumero();
+		this.enderecoBairro = funcionario.getEndereco().getBairro();
+		this.enderecoCidade = funcionario.getEndereco().getCidade();
+		this.enderecoEstado = funcionario.getEndereco().getEstado();
 	}
+	
+	
+
 	public String getNome() {
 		return nome;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public String getId() {
 		return id;
 	}
+
 	public String getTelefone() {
 		return telefone;
 	}
-	public String getCep() {
-		return cep;
+
+	public String getEnderecoCep() {
+		return enderecoCep;
 	}
-	public String getLogradouro() {
-		return logradouro;
+
+	public String getEnderecoLogradouro() {
+		return enderecoLogradouro;
 	}
-	public String getNumero() {
-		return numero;
+
+	public String getEnderecoNumero() {
+		return enderecoNumero;
 	}
-	public String getBairro() {
-		return bairro;
+
+	public String getEnderecoBairro() {
+		return enderecoBairro;
 	}
-	public String getCidade() {
-		return cidade;
+
+	public String getEnderecoCidade() {
+		return enderecoCidade;
 	}
-	public String getEstado() {
-		return estado;
+
+	public String getEnderecoEstado() {
+		return enderecoEstado;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((bairro == null) ? 0 : bairro.hashCode());
-		result = prime * result + ((cep == null) ? 0 : cep.hashCode());
-		result = prime * result + ((cidade == null) ? 0 : cidade.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+		result = prime * result + ((enderecoBairro == null) ? 0 : enderecoBairro.hashCode());
+		result = prime * result + ((enderecoCep == null) ? 0 : enderecoCep.hashCode());
+		result = prime * result + ((enderecoCidade == null) ? 0 : enderecoCidade.hashCode());
+		result = prime * result + ((enderecoEstado == null) ? 0 : enderecoEstado.hashCode());
+		result = prime * result + ((enderecoLogradouro == null) ? 0 : enderecoLogradouro.hashCode());
+		result = prime * result + ((enderecoNumero == null) ? 0 : enderecoNumero.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((logradouro == null) ? 0 : logradouro.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
 		result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
 		return result;
 	}
+
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -86,50 +102,50 @@ public class FuncionarioView {
 		if (getClass() != obj.getClass())
 			return false;
 		FuncionarioView other = (FuncionarioView) obj;
-		if (bairro == null) {
-			if (other.bairro != null)
-				return false;
-		} else if (!bairro.equals(other.bairro))
-			return false;
-		if (cep == null) {
-			if (other.cep != null)
-				return false;
-		} else if (!cep.equals(other.cep))
-			return false;
-		if (cidade == null) {
-			if (other.cidade != null)
-				return false;
-		} else if (!cidade.equals(other.cidade))
-			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (estado == null) {
-			if (other.estado != null)
+		if (enderecoBairro == null) {
+			if (other.enderecoBairro != null)
 				return false;
-		} else if (!estado.equals(other.estado))
+		} else if (!enderecoBairro.equals(other.enderecoBairro))
+			return false;
+		if (enderecoCep == null) {
+			if (other.enderecoCep != null)
+				return false;
+		} else if (!enderecoCep.equals(other.enderecoCep))
+			return false;
+		if (enderecoCidade == null) {
+			if (other.enderecoCidade != null)
+				return false;
+		} else if (!enderecoCidade.equals(other.enderecoCidade))
+			return false;
+		if (enderecoEstado == null) {
+			if (other.enderecoEstado != null)
+				return false;
+		} else if (!enderecoEstado.equals(other.enderecoEstado))
+			return false;
+		if (enderecoLogradouro == null) {
+			if (other.enderecoLogradouro != null)
+				return false;
+		} else if (!enderecoLogradouro.equals(other.enderecoLogradouro))
+			return false;
+		if (enderecoNumero == null) {
+			if (other.enderecoNumero != null)
+				return false;
+		} else if (!enderecoNumero.equals(other.enderecoNumero))
 			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (logradouro == null) {
-			if (other.logradouro != null)
-				return false;
-		} else if (!logradouro.equals(other.logradouro))
-			return false;
 		if (nome == null) {
 			if (other.nome != null)
 				return false;
 		} else if (!nome.equals(other.nome))
-			return false;
-		if (numero == null) {
-			if (other.numero != null)
-				return false;
-		} else if (!numero.equals(other.numero))
 			return false;
 		if (telefone == null) {
 			if (other.telefone != null)
@@ -138,12 +154,20 @@ public class FuncionarioView {
 			return false;
 		return true;
 	}
+	
+	
+
+
 	@Override
 	public String toString() {
-		return "FuncionarioView [nome=" + nome + ", email=" + email + ", id=" + id + ", telefone=" + telefone + ", cep="
-				+ cep + ", logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", cidade="
-				+ cidade + ", estado=" + estado + "]";
+		return "FuncionarioView [nome=" + nome + ", email=" + email + ", id=" + id + ", telefone=" + telefone
+				+ ", enderecoCep=" + enderecoCep + ", enderecoLogradouro=" + enderecoLogradouro + ", enderecoNumero="
+				+ enderecoNumero + ", enderecoBairro=" + enderecoBairro + ", enderecoCidade=" + enderecoCidade
+				+ ", enderecoEstado=" + enderecoEstado + "]";
 	}
+
+
+
 	public static List<FuncionarioView> converte(List<Funcionario> listarFuncionairos) {
 		List<FuncionarioView> funcionariosView = listarFuncionairos.stream().map(FuncionarioView::new).collect(Collectors.toList());
 		if(funcionariosView.size()>0) {
